@@ -1,0 +1,30 @@
+20:13:40 **** Incremental Build of configuration Debug for project uart_test ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:138:49: warning: passing argument 3 of 'HAL_UART_Transmit' makes integer from pointer without a cast [-Wint-conversion]
+  138 |    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, buffer, 1000);
+      |                                                 ^~~~~~
+      |                                                 |
+      |                                                 char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:721:89: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'char *'
+  721 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                ~~~~~~~~~^~~~
+arm-none-eabi-gcc -o "uart_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/ikigai/Embedded_C/My_workspace/target/uart_test/STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: uart_test.elf
+ 
+arm-none-eabi-objdump -h -S  uart_test.elf  > "uart_test.list"
+arm-none-eabi-objcopy  -O binary  uart_test.elf  "uart_test.bin"
+arm-none-eabi-size   uart_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23648	    484	   1668	  25800	   64c8	uart_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: uart_test.bin
+ 
+Finished building: uart_test.list
+ 

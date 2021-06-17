@@ -1,0 +1,8 @@
+main.c:68:7:get_random_float	16	static
+main.c:73:8:get_array_floats	40	static
+main.c:82:11:get_array_uint16_t	24	static
+main.c:96:5:main	336	dynamic
+main.c:150:6:SystemClock_Config	88	static
+main.c:190:13:MX_USART1_UART_Init	8	static
+main.c:223:13:MX_GPIO_Init	40	static
+main.c:251:6:Error_Handler	4	static,ignoring_inline_asm

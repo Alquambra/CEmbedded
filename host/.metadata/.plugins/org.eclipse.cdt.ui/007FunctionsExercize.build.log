@@ -1,0 +1,7 @@
+17:49:47 **** Clean-only build of configuration Debug for project 007FunctionsExercize ****
+make clean 
+rm -rf  ./main.o ./math.o  ./main.d ./math.d  007FunctionsExercize
+ 
+
+17:49:47 Build Finished. 0 errors, 0 warnings. (took 165ms)
+

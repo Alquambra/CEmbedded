@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+
+float arrx[10];
+float arry[10];
+
+
+float get_random_float (float min, float max) {
+	return ((float) rand() / (float) RAND_MAX) * (max - min) + min;
+}
+
+
+float get_array() {
+	for (uint8_t i = 0; i < 10; i++) {
+		arrx[i] = get_random_float(10, 20);
+		arry[i] = get_random_float(40, 50);
+	}
+	return 0;
+}
+
+
+float get_array_floats(float start, float end, uint8_t size) {
+	float arr[size];
+	uint8_t i;
+	for (i = 0; i < size; i++) {
+		arr[i] = get_random_float(start, end);
+	}
+	return arr;
+}
+
+
+int main(void) {
+	float x_coords[];
+	uint8_t i;
+	xcoords = get_array_floats(10, 20, 10);
+	for (i = 0; i < sizeof(xcoords) / sizeof(xcoords[0]); i++) {
+		printf("%f", xcoords[i]);
+	}
+	return 0;
+}
